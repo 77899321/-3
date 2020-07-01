@@ -1,0 +1,65 @@
+using System;
+
+interface ICalculate
+{
+    int Add();
+    int Sub();
+    int Mul();
+    double Div();
+}
+
+class Calculate : ICalculate
+{
+    private int a;
+    private int b;
+
+    public Calculate()
+    {
+        a = 0;  
+        b = 0;      
+    }
+
+    public Calculate(int a, int b)
+    {
+        this.a = a;
+        this.b = b;
+    }
+
+    public int Add()
+    { return a + b; }
+
+    public int Sub()
+    { return a - b; }
+
+    public int Mul()
+    { return a * b; }
+
+    public double Div()
+    { return b == 0 ? 0 : (double)a / b; }
+
+
+    public int Pow()
+    { return (int)Math.Pow(a, b); }
+
+    public int getA()
+    { return a; }
+
+    public int getB()
+    { return b; }
+}
+
+class A
+{
+    static void Main()
+    {
+        Calculate obj1 = new Calculate(3, 5);
+        Calculate obj2 = new Calculate(6, 3);
+
+        Console.WriteLine("{0} + {1} = {2}", obj1.getA(), obj1.getB(), obj1.Add());
+        Console.WriteLine("{0} - {1} = {2}", obj1.getA(), obj1.getB(), obj1.Sub());
+        Console.WriteLine("{0} * {1} = {2}", obj2.getA(), obj2.getB(), obj2.Mul());
+        Console.WriteLine("{0} / {1} = {2}", obj2.getA(), obj2.getB(), obj2.Div());
+
+        Console.ReadKey(true);
+    }
+}
